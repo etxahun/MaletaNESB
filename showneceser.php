@@ -13,7 +13,7 @@
 	}
 	
 	/* Open MySQL connection */
-	$mysqli = new mysqli("localhost", "root", "xxxxxx", "maletaboda" );
+	$mysqli = new mysqli("localhost", "root", "xxxxx", "maletaboda" );
 	
 	/* If we are asked to delete a row */
 	if( isset($type) && ($type=="del") && isset($val) ) {
