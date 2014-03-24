@@ -583,7 +583,7 @@ var todo_delEtxahunItem = function(num)
 var todo_addEtxahunItem = function(txt)
 {
 	if( txt!="" ) {
-		getEtxahuntemStatus( "showmaletaetxahun.php?type=add&val="+encodeURIComponent(Base64.encode(txt)) );
+		getEtxahunItemStatus( "showmaletaetxahun.php?type=add&val="+encodeURIComponent(Base64.encode(txt)) );
 	}
 	else {
 		alert("Item is empty!");
@@ -593,7 +593,7 @@ var todo_addEtxahunItem = function(txt)
 /* Processes "Add item" button */
 var process_addEtxahunItem = function() {
 	var txt = $("#txt_etxahun_item").val();
-	todo_addEtxahunkItem( txt );
+	todo_addEtxahunItem( txt );
 	$("#txt_etxahun_item").val("");
 	$("#txt_etxahun_item").focus();
 }
