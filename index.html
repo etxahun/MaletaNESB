@@ -28,12 +28,14 @@
 }
 
 /* Modificado por mi */
+/*
 .page-section-nerea {
 	width: 100%;
 	min-height: 100px;
 	padding-top: 50px;
 	border-bottom: 10px solid #fff;
-}
+}*/
+
 .page-section {
 	width: 100%;
 	border-bottom: 10px solid #fff;
@@ -71,7 +73,7 @@
 
 .btn {
 	font-weight: 200;
-	margin-bottom: 2px;
+	/*margin-bottom: 2px;*/
 }
 .btn-dark {
 	background: #444;
@@ -87,7 +89,7 @@
 	/*background: #fff;*/
 	background: grey;
 	color: #333;
-	padding: 0 10px 5px;
+	padding: 5px 10px 5px;
 	margin: 20px 0 0;
 	text-shadow: none;
 }
@@ -99,7 +101,51 @@
 
 .table{
 	margin-top: 20px;
-	width: 35%;
+	width: 70%;
+}
+
+.input-group{
+	width: 330px;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #EFEFEF;
+}
+
+
+.table-striped > thead {
+    background-color: #4A4A4A;
+    color: #f5f5f5;
+}
+
+
+#nerea .container{
+	width: 80%;
+	padding-top: 50px;
+	margin-left: 22.5%;
+	/*margin-right: auto;*/
+}
+
+#etxahun .container{
+	width: 80%;
+	margin-left: 22.5%;
+	/*margin-right: auto;*/
+}
+
+#tareaspendientes .container{
+	width: 80%;
+	margin-left: 22.5%;
+	/*margin-right: auto;*/
+}
+
+#neceser .container{
+	width: 80%;
+	margin-left: 22.5%;
+	/*margin-right: auto;*/
+}
+
+.glyphicon{
+	top: 2px;
 }
 
 /*
@@ -117,6 +163,8 @@ hr {border-color: #ddd;}
 	.navbar-nav {
 		float: right;
 	}
+
+
 }
 @media (max-width: 480px) {
 	.page-section h1 {
@@ -134,8 +182,35 @@ hr {border-color: #ddd;}
 		width:100%;
 	}
 
+	#nerea .container{
+		width: 70%;
+		margin-left: 0%;
+		/*margin-right: auto;*/
+		padding-top: 50px;
+	}
+
+	#etxahun .container{
+		width: 70%;
+		margin-left: 0%;
+		/*margin-right: auto;*/
+	}
+
+	#tareaspendientes .container{
+		width: 70%;
+		margin-left: 0%;
+		/*margin-right: auto;*/
+	}
+
+	#neceser .container{
+		width: 70%;
+		margin-left: 0%;
+		/*margin-right: auto;*/
+	}
+
 
 }
+
+
 </style>
 </head>
 
@@ -187,7 +262,7 @@ hr {border-color: #ddd;}
   		</div><!-- /.col-lg-3 -->
   		<br>
 	    <div id="list_nerea_view"></div>
-		<a href="#" class="scroll-top back-to-top" style="border-radius: 15px;">&uarr;</a>
+		<a href="#" class="scroll-top back-to-top" style="border-radius: 15px;">&uarr; Gora</a>
 	</div>
 	<!--/.container-->
 </div>
@@ -209,7 +284,7 @@ hr {border-color: #ddd;}
   		</div><!-- /.col-lg-3 -->
   		<br>    
 		<div id="list_etxahun_view"></div>
-		<a href="#" class="scroll-top back-to-top" style="border-radius: 15px;">&uarr;</a>
+		<a href="#" class="scroll-top back-to-top" style="border-radius: 15px;">&uarr; Gora</a>
 	</div>
 	<!--/.container-->
 </div>
@@ -231,7 +306,7 @@ hr {border-color: #ddd;}
   		</div><!-- /.col-lg-3 -->
   		<br>   
 		<div id="list_todo_view"></div>
-		<a href="#" class="scroll-top back-to-top" style="border-radius: 15px;">&uarr;</a>
+		<a href="#" class="scroll-top back-to-top" style="border-radius: 15px;">&uarr; Gora</a>
 	</div>
 	<!--/.container-->
 </div>
@@ -245,7 +320,7 @@ hr {border-color: #ddd;}
 		<h3>Item</h3>
 		<div class="col-lg-3">
     		<div class="input-group">
-      			<input type="text" id="txt_todo_item" class="form-control" placeholder="Añade item" size="30">
+      			<input type="text" id="txt_neceser_item" class="form-control" placeholder="Añade item" size="30">
       			<span class="input-group-btn">
         			<button id="btn_neceser_item" class="btn btn-primary" type="button">Añadir</button>
       			</span>
@@ -253,7 +328,7 @@ hr {border-color: #ddd;}
   		</div><!-- /.col-lg-3 -->
   		<br>   
 		<div id="list_neceser_view"></div>
-		<a href="#" class="scroll-top back-to-top" style="border-radius: 15px;">&uarr;</a>
+		<a href="#" class="scroll-top back-to-top" style="border-radius: 15px;">&uarr; Gora</a>
 	</div>
 	<!--/.container-->
 </div>
@@ -369,13 +444,13 @@ var getNereaItemStatus = function(str)
 		var obj = eval($("#hidden_results").html());
 		var res = "";
 		
-		res += "<table class=\"table table-striped table-hover\" style=\"text-alignment:left;\">";
-		res += "<tr><th>ID</th><th span=\"2\">Item</th></tr>";
+		res += "<table class=\"table table-striped table-hover\">";
+		res += "<thead><tr><th>ID</th><th span=\"2\">Item</th><th>Acción</th></tr></thead>";
 		for( i=0; i<obj.length; i++ ) {
 			res += "<tr>";
 			res += "<td>"+obj[i].id+"-</td>";
 			res += "<td id=\"item"+obj[i].id+"\">"+Base64.decode(decodeURIComponent(obj[i].item))+"</td>";
-			res += "<td><a class=\"btn btn-xs btn-danger\" id=\"but"+obj[i].id+"\" onclick=\"javascript:todo_delNereaItem("+obj[i].id+");\"><i class=\"glyphicon glyphicon-trash\"></i></a></td>";
+			res += "<td><a style=\"margin-left: 12px;\" class=\"btn btn-xs btn-danger\" id=\"but"+obj[i].id+"\" onclick=\"javascript:todo_delNereaItem("+obj[i].id+");\"><i class=\"glyphicon glyphicon-trash\"></i></a></td>";
 			res += "</tr>";
 		}
 		res += "</table>";
@@ -392,13 +467,13 @@ var getEtxahunItemStatus = function(str)
 		var obj = eval($("#hidden_results").html());
 		var res = "";
 		
-		res += "<table class=\"table table-striped\" style=\"text-alignment:left;\">";
-		res += "<tr><th>ID</th><th>Item</th></tr>";
+		res += "<table class=\"table table-striped\">";
+		res += "<thead><tr><th>ID</th><th span=\"2\">Item</th><th>Acción</th></tr></thead>";
 		for( i=0; i<obj.length; i++ ) {
 			res += "<tr>";
 			res += "<td>"+obj[i].id+"-</td>";
 			res += "<td id=\"item"+obj[i].id+"\">"+Base64.decode(decodeURIComponent(obj[i].item))+"</td>";
-			res += "<td><a class=\"btn btn-xs btn-danger\" id=\"but"+obj[i].id+"\" onclick=\"javascript:todo_delEtxahunItem("+obj[i].id+");\"><i class=\"glyphicon glyphicon-trash\"></i></a></td>";
+			res += "<td><a style=\"margin-left: 12px;\" class=\"btn btn-xs btn-danger\" id=\"but"+obj[i].id+"\" onclick=\"javascript:todo_delEtxahunItem("+obj[i].id+");\"><i class=\"glyphicon glyphicon-trash\"></i></a></td>";
 			res += "</tr>";
 		}
 		res += "</table>";
@@ -415,14 +490,13 @@ var getPendienteItemStatus = function(str)
 		var obj = eval($("#hidden_results").html());
 		var res = "";
 		
-		res += "<table class=\"table table-striped\" style=\"text-alignment:left;\">";
-		res += "<tr><th>ID</th><th>Item</th></tr>";
+		res += "<table class=\"table table-striped\">";
+		res += "<thead><tr><th>ID</th><th span=\"2\">Item</th><th>Acción</th></tr></thead>";
 		for( i=0; i<obj.length; i++ ) {
 			res += "<tr>";
 			res += "<td>"+obj[i].id+"-</td>";
 			res += "<td id=\"item_pendiente"+obj[i].id+"\">"+Base64.decode(decodeURIComponent(obj[i].item))+"</td>";
-			res += "<td><a class=\"btn btn-xs btn-danger\" id=\"but"+obj[i].id+"\" onclick=\"javascript:todo_delPendienteItem("+obj[i].id+");\"><i class=\"glyphicon glyphicon-trash\"></i></a></td>";
-			res += "<td></td>";
+			res += "<td><a style=\"margin-left: 12px;\" class=\"btn btn-xs btn-danger\" id=\"but"+obj[i].id+"\" onclick=\"javascript:todo_delPendienteItem("+obj[i].id+");\"><i class=\"glyphicon glyphicon-trash\"></i></a></td>";
 			res += "</tr>";
 		}
 		res += "</table>";
@@ -439,13 +513,13 @@ var getNeceserItemStatus = function(str)
 		var obj = eval($("#hidden_results").html());
 		var res = "";
 		
-		res += "<table class=\"table table-striped table-hover\" style=\"text-alignment:left;\">";
-		res += "<tr><th>ID</th><th span=\"2\">Item</th></tr>";
+		res += "<table class=\"table table-striped table-hover\">";
+		res += "<thead><tr><th>ID</th><th span=\"2\">Item</th><th>Acción</th></tr></thead>";
 		for( i=0; i<obj.length; i++ ) {
 			res += "<tr>";
 			res += "<td>"+obj[i].id+"-</td>";
 			res += "<td id=\"item"+obj[i].id+"\">"+Base64.decode(decodeURIComponent(obj[i].item))+"</td>";
-			res += "<td><a class=\"btn btn-xs btn-danger\" id=\"but"+obj[i].id+"\" onclick=\"javascript:todo_delNeceserItem("+obj[i].id+");\"><i class=\"glyphicon glyphicon-trash\"></i></a></td>";
+			res += "<td><a style=\"margin-left: 12px;\" class=\"btn btn-xs btn-danger\" id=\"but"+obj[i].id+"\" onclick=\"javascript:todo_delNeceserItem("+obj[i].id+");\"><i class=\"glyphicon glyphicon-trash\"></i></a></td>";
 			res += "</tr>";
 		}
 		res += "</table>";
